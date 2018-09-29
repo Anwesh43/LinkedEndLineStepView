@@ -4,6 +4,7 @@ package com.anwesh.uiprojects.endlinestepview
  * Created by anweshmishra on 30/09/18.
  */
 
+import android.app.Activity
 import android.view.View
 import android.view.MotionEvent
 import android.content.Context
@@ -191,6 +192,14 @@ class EndLineStepView(ctx : Context) : View(ctx) {
             esl.startUpdating {
                 animator.start()
             }
+        }
+    }
+
+    companion object {
+        fun create(activity : Activity) : EndLineStepView {
+            val view : EndLineStepView = EndLineStepView(activity)
+            activity.setContentView(view)
+            return view
         }
     }
 }
