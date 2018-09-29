@@ -170,4 +170,25 @@ class EndLineStepView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : EndLineStepView) {
+        private val animator : Animator = Animator(view)
+        private val esl : EndStepLine = EndStepLine(0)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(Color.parseColor("#BDBDBD"))
+            esl.draw(canvas, paint)
+            animator.animate {
+                esl.update{i, scl ->
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            esl.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
