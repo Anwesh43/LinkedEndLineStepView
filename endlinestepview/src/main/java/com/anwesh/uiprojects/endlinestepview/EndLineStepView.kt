@@ -26,7 +26,7 @@ fun Canvas.drawELSNode(i : Int, scale : Float, paint : Paint) {
     translate(w/2, i * gap + gap)
     for (j in 0..1) {
         val sf : Float = 1f - 2 * j
-        val sc : Float = Math.min(0.5f, Math.max(0f, scale - 0.5f)) * 2
+        val sc : Float = Math.min(0.5f, Math.max(0f, scale - j * 0.5f)) * 2
         val sc1 : Float = Math.min(0.5f, sc) * 2
         val sc2 : Float = Math.min(0.5f, Math.max(0f, sc - 0.5f)) * 2
         save()
